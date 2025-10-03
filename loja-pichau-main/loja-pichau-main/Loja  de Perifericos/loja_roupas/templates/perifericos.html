@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}perifericos{% endblock %}
+
+{% block content %}
+<h2>Nossos Periféricos</h2>
+<div class="Periféricos-grid">
+    {% for periferico in Periféricos %}
+    <div class="periferico">
+        <img src="{{ url_for('static', filename='images/' + periferico.imagem) }}" alt="{{ periferico.nome }}">
+        <h3>{{ periferico.nome }}</h3>
+        <p>R$ {{ "%.2f"|format(periferico.preco) }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
