@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Hardwares{% endblock %}
+
+{% block content %}
+<h2>Nossos Hardwares</h2>
+<div class="Hardwares-grid">
+    {% for hardware in Hardwares %}
+    <div class="Hardwares">
+        <img src="{{ url_for('static', filename='images/' + hardware.images) }}" alt="{{ hardware.nome }}">
+        <h3>{{ hardware.nome }}</h3>
+        <p>R$ {{ "%.2f"|format(Hardware.preco) }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

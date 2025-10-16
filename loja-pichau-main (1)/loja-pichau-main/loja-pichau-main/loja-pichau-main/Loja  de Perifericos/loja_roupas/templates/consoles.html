@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}consoles{% endblock %}
+
+{% block content %}
+<h2>Nossos consoles</h2>
+<div class="consoles-grid">
+    {% for console in consoles %}
+    <div class="console">
+        <img src="{{ url_for('static', filename='images/' + console.imagem) }}" alt="{{ console.nome }}">
+        <h3>{{ console.nome }}</h3>
+        <p>R$ {{ "%.2f"|format(console.preco) }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
